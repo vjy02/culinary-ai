@@ -5,7 +5,7 @@ NOTE: Will need to change API_KEY if running on your local machine or else nothi
 CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
 ## Demo link:
-Access my site at [google.com](https://google.com)
+Access my site at [culinaryai.netlify.app](https://culinaryai.netlify.app/)
 
 ## Table of Content:
 
