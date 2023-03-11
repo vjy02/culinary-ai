@@ -4,7 +4,7 @@ import {ThreeCircles} from 'react-loader-spinner';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCopy } from 'react-icons/fi';
 
-const API_KEY = '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'; 
+const API_KEY = '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'; 
 
 export default function Input() {
   const [input, setInput] = useState('');
