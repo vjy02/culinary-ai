@@ -19,7 +19,7 @@ Access my site at [culinaryai.netlify.app](https://culinaryai.netlify.app/)
 - [License](#license)
 
 ## About The App
-[Name of project] is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
+CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
 ## Technologies
 I used `React.js`, `Vite.js`, `TailWindCSS`, `html`, `css`
