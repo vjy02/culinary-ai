@@ -2,9 +2,6 @@
 
 CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
-# CulinaryAI
-AI based web application.
-
 ## Demo link:
 Access my site at [google.com](https://google.com)
 
