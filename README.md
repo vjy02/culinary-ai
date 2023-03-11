@@ -32,7 +32,7 @@ tailored suggestions towards the user. I hope to add more "options" for the user
 some of their favorite recipes.
 
 ## Status
-[Name of project] is still in progress. `Version 2` will be out later.
+CulinaryAI is still in progress. `Version 2` will be out later.
 
 ## Credits
 List of contriubutors:
