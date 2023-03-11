@@ -1,4 +1,6 @@
-# CulinaryAI
+# CulinaryAI 
+
+NOTE: Will need to change API_KEY if running on your local machine or else nothing will be generated, API keys from OpenAI expire if found on github as a safety measure.
 
 CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
