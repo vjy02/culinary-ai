@@ -1,4 +1,4 @@
-## NOTE: Will need to change API_KEY if running on your local machine, API_KEY not protected here as this project is for demonstrative purposes only, no payment setup is active.
+<font size=5> NOTE: Will need to change API_KEY if running on your local machine, API_KEY not protected here as this project is for demonstrative purposes only, no payment setup is active.</font>
 
 # CulinaryAI 
 CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
