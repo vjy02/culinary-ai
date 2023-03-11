@@ -4,7 +4,7 @@ import {ThreeCircles} from 'react-loader-spinner';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCopy } from 'react-icons/fi';
 
-const API_KEY = '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'; 
+const API_KEY = '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'; 
 
 export default function Input() {
   const [input, setInput] = useState('');
@@ -87,10 +87,11 @@ export default function Input() {
         model: 'text-davinci-003',
         prompt:
           'Suggest 1 detailed recipe with specific quantities of each ingridients, using these ingridients:' +
-          listItems.join(' ') + '. Do not include these ingridients at any cost:' +listExlusions.join(' ')+'. Do not suggest any of these banned recipes or recipe names, \
+          listItems.join(' ') + '. Do not include these ingridients at any cost:' +listExlusions.join(' ')+'. Also not suggest any of these banned recipes, \
           each of these banned recipes are seperated by a "//" \
           : ' + recipes + 'END OF LIST.\
-          If you cant think of any recipe that isnt in the list then return an appropriate recipe. Return with the following format:\
+          If you cant think of any recipe then return a recipe that uses at least one of the listed ingridients. \
+          Return with the following format:\
           recipe name, then an empty line then ingridients header followed by ingridient \
           list then another empty line then numbered instructions (dont seperate each step with a new line). Do not\
           include other ingridients at the beginning of ur answer.',
