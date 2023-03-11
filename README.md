@@ -19,7 +19,7 @@ Access my site at [google.com](https://google.com)
 [Name of project] is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
 ## Technologies
-I used `React.js`, `Vite.js`, `TailWindCSS`, html`, `css`
+I used `React.js`, `Vite.js`, `TailWindCSS`, `html`, `css`
 
 ## Setup
 - download or clone the repository
