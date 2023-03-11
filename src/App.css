@@ -1,0 +1,8 @@
+.hide {
+    opacity: 1;
+}
+  
+.hide.hidden {
+    opacity: 0;
+}
+  

@@ -1,0 +1,102 @@
+import { useState, useEffect } from 'react'
+import Select from "react-select"
+
+const API_KEY = "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"; // secure -> environment variable
+
+function Input() {
+    const [input, setInput] = useState("");
+    const [message, setMessage] = useState(""); // "Negative" or "Positive"
+  
+    const handleInput = (event) => {
+      const inputValue = event.target.value;
+      if (/^[A-Za-z ]*$/.test(inputValue)) { // check if input value contains only letters or space
+        setInput(inputValue);
+      } else {
+        alert('Please enter only letters or space');
+      }
+    };
+  
+    const [listItems, setListItems] = useState([]);
+  
+    const addList = () => {
+  
+      if (input) {
+        setListItems([...listItems, input]);
+      }
+    };
+  
+    async function callOpenAIAPI() {
+      console.log("Calling the OpenAI API");
+  
+      // For 0-10
+      // What is the sentiment of this input with a value between 0 and 10 (10 being its very positive)? 
+  
+      const APIBody = {
+        "model": "text-davinci-003",
+        "prompt":  'first say and then exclude any non food items or duplicates that are in the input list if there is not even one valid food items then just \
+         "No valid food items" else, list recipes that use all of these ingridients in the input list. input list = ' + listItems.join(' ')  ,
+        "temperature": 0,
+        "max_tokens": 60,
+        "top_p": 1.0,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0
+      }
+  
+      await fetch("https://api.openai.com/v1/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + API_KEY
+        },
+        body: JSON.stringify(APIBody)
+      }).then((data) => {
+        return data.json();
+      }).then((data) => {
+        console.log(data);
+        setMessage(data.choices[0].text);
+      });
+    }
+
+
+  
+  
+
+
+    return (
+    <div>
+        <div className="mb-4 flex justify-between items-center w-96">
+            <input
+            className="w-full h-10 rounded-md shadow-sm"
+            onChange={handleInput}
+            placeholder="Paste your input here!"
+            />
+
+            <button onClick={addList} className="ml-2 px-4 py-2 font-medium text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:ring-blue-400 ">
+            Add to list
+            </button>
+        </div>
+        <div className="mb-4 flex flex-col justify-center items-center w-96">
+            <button
+            className="px-4 py-2 font-medium text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+            onClick={callOpenAIAPI}
+            >
+            Get The input Sentiment From OpenAI API
+            </button>
+            {message !== "" && (
+            <h3 className="w-96 h-24 mt-4 px-4 py-2 border-gray-300 rounded-md shadow-sm text-center">
+                This input Is: {message}
+            </h3>
+            )}
+        </div>
+        <div className="mt-4 flex flex-col items-center">
+            <ul className="grid grid-cols-2 gap-4">
+            {listItems.map((item, index) => (
+                <li key={index} className="py-2 border-b border-gray-300">{item}</li>
+            ))}
+            </ul>
+        </div>
+      </div>
+    )
+}
+
+export default Input
