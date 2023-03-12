@@ -20,9 +20,12 @@ function App() {
           <Input/>
         </div>
       </div>
-      <div class="h-screen bg-cover bg-[url('./assets/background.jpg')] opacity-100 transition-opacity duration-500 delay-500">
-        <Input/>
-      </div>
+      {hidden &&(
+            <div class="h-screen bg-cover bg-[url('./assets/background.jpg')] opacity-100 transition-opacity duration-500 delay-500">
+            <Input/>
+          </div>
+      )
+      }
     </div>
   )
 }

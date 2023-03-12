@@ -4,9 +4,10 @@ import {ThreeCircles} from 'react-loader-spinner';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCopy } from 'react-icons/fi';
 
-const API_KEY = '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'; 
+const API_KEY = "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"
 
 export default function Input() {
+
   const [input, setInput] = useState('');
   const [message, setMessage] = useState(''); 
   const [suggestions, setSuggestions] = useState([]);
@@ -25,6 +26,8 @@ export default function Input() {
       alert('Please enter only letters or space');
     }
   };
+
+
 
   function handleCopyClick() {
     setIsCopied(true)
@@ -80,8 +83,38 @@ export default function Input() {
 
   async function callOpenAIAPI() {
     if (listItems.length > 0){
-      console.log('Calling the OpenAI API');
+      console.log('Calling the OpenAI API')
       setLoading(true)
+
+      const API_ENDPOINT = "/.netlify/functions/openai"
+      const inclusions = listItems.join(' ')
+      const exclusions = listExlusions.join(' ')
+
+      const prompt = 'Suggest 1 detailed recipe with specific quantities of each ingridients, using these ingridients:' +
+      {inclusions} + '. Do not include these ingridients at any cost:' +{exclusions}+'. Also not suggest any of these banned recipes, \
+      each of these banned recipes are seperated by a "//" \
+      : ' + {recipes} + 'END OF LIST.\
+      If you cant think of any recipe then return a recipe that uses at least one of the listed ingridients. \
+      Return with the following format:\
+      recipe name, then an empty line then ingridients header followed by ingridient \
+      list then another empty line then numbered instructions (dont seperate each step with a new line). Do not\
+      include other ingridients at the beginning of ur answer.'
+
+      const variables = { inclusions: inclusions, exclusions:exclusions, recipes: recipes};
+    
+      const requestBody = {
+        prompt,
+        variables,
+      };
+    
+      fetch(API_ENDPOINT, {
+        method: "POST",
+        body: JSON.stringify(requestBody),
+      })
+      .then((response) => response.json())
+      .then((data) => console.log(data.message))
+      .catch((error) => console.error(error));
+
 
       const APIBody = {
         model: 'text-davinci-003',
