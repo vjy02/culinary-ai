@@ -1,9 +1,12 @@
-# CulinaryAI
-
+# CulinaryAI 
 CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
+## Important Notice
+**NOTE: Will need to change API_KEY to your own OpenAI one if running on your local machine, API_KEY not protected here as this project is for demonstrative purposes only, no payment setup is active. Protection will be added once backend implementation occurs.**
+
+
 ## Demo link:
-Access my site at [google.com](https://google.com)
+Access my site at [culinaryai.netlify.app](https://culinaryai.netlify.app/)
 
 ## Table of Content:
 
@@ -16,7 +19,7 @@ Access my site at [google.com](https://google.com)
 - [License](#license)
 
 ## About The App
-[Name of project] is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
+CulinaryAI is a Chat-GPT3 powered web application that suggests recipes based on users preferred ingridients and exclusions. New suggestions are generated each time.
 
 ## Technologies
 I used `React.js`, `Vite.js`, `TailWindCSS`, `html`, `css`
